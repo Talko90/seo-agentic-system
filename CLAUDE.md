@@ -35,7 +35,7 @@ All proposals MUST include a `"reasoning"` field per recommendation:
 - Anything assigned to `content-team` or `marketing-team`
 
 **Requires Manual Approval** (status: "pending"):
-- Live website changes (dev-external, yael-webmaster), schema, technical fixes, URL changes
+- Live website changes (dev-external, site-webmaster), schema, technical fixes, URL changes
 
 ### Persona System
 

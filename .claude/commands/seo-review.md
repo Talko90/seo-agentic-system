@@ -204,7 +204,7 @@ if meta_length < 50 or meta_length > 160:
 **Validation Method**:
 ```bash
 # Scan for customer names (example - customize with actual customer list)
-customer_names=("Vitol" "Trafigura" "Gunvor" "Glencore")  # EXAMPLE ONLY
+customer_names=("CustomerName1" "CustomerName2")  # Replace with your actual customer names from data/context/customer_names.txt
 for name in "${customer_names[@]}"; do
     if grep -qi "$name" proposal.json; then
         flag_as_blocking("Customer name detected: $name")
@@ -283,7 +283,7 @@ For ANY content mentioning specific vessels:
    - **YES (Sanctioned):**
      - Check: Is ownership information updated?
      - Check: Is P&I (Protection & Indemnity) updated?
-     - If either is NOT updated → **LEGAL_BLOCKED** — Flag for Casif/Joe C review
+     - If either is NOT updated → **LEGAL_BLOCKED** — Flag for Legal Team review
      - If both updated → Proceed with caution, mark **LEGAL_REVIEW_NEEDED**
    - **NOT Sanctioned:**
      - Only publish if: (a) zombie vessel, OR (b) previously covered in media for the same reason
@@ -554,10 +554,10 @@ Edit this file, add to checklist:
 
 ### Maintaining Customer Name List
 
-Update `data/context/customer_names.txt` (one per line):
+Update `data/context/customer_names.txt` (one per line) with your actual customer names:
 ```
-Vitol
-Trafigura
+[CustomerName1]
+[CustomerName2]
 [Add known customers here]
 ```
 
@@ -592,7 +592,7 @@ Trafigura
 ```json
 {
   "test_case": "Customer name exposure",
-  "content": "Vitol uses Windward for sanctions screening",
+  "content": "AcmeCorp uses Windward for sanctions screening",
   "expected": "BLOCKING - Customer name detected"
 }
 ```

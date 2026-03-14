@@ -239,7 +239,7 @@ Save two files:
   },
   "recommendations": [],
   "system_info": {
-    "project_root": "~/Claude Main",
+    "project_root": "~/your-project",
     "python_version": "...",
     "mcp_servers_configured": [],
     "total_pages_indexed": 0,
@@ -304,7 +304,7 @@ Follow Slack Notification Protocol from CLAUDE.md. Use header emoji `:hospital:`
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-google-sheets"],
       "env": {
-        "GOOGLE_SHEETS_CREDENTIALS_PATH": "~/Claude Main/scripts/google-sheets-service-account.json"
+        "GOOGLE_SHEETS_CREDENTIALS_PATH": "~/your-project/scripts/google-sheets-service-account.json"
       }
     }
   }

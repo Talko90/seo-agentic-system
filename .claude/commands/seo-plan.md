@@ -461,7 +461,7 @@ After calculating priority scores, automatically set status for safe actions:
 
 **Require approval** (keep `status: "pending"`):
 - If `assigned_to: dev-external` → Pending (live code changes)
-- If `assigned_to: yael-webmaster` → Pending (live site changes)
+- If `assigned_to: site-webmaster` → Pending (live site changes)
 - If `content_type: schema` OR `content_type: technical` → Pending
 - If `content_type: agent_discovery` OR `content_type: agent_navigation` → Pending (live site changes)
 - If `content_type: comparison_page` AND `requires_draft: true` → Auto-approve (content draft)
@@ -572,7 +572,7 @@ After calculating priority scores, assign each action to the appropriate human t
 3. **FAQ sections and content formatting** → `content-team`, set `requires_draft: false`
 4. **Schema/code implementation** → `dev-external`
 5. **Core Web Vitals/performance fixes** → `dev-external`
-6. **URL changes, redirects, menu updates** → `yael-webmaster`
+6. **URL changes, redirects, menu updates** → `site-webmaster`
 7. **Outreach email sending** → `marketing-team`, auto-approve
 8. **Guest post submissions** → `marketing-team`, auto-approve
 9. **PR/press release distribution** → `marketing-team`, auto-approve
@@ -603,7 +603,7 @@ Create filtered task reports for each team in `data/reports/`:
 
 **Files to generate:**
 - `team-tasks-content-team.md` - Content team's pending tasks with draft links
-- `team-tasks-yael-webmaster.md` - Webmaster tasks with CMS instructions
+- `team-tasks-site-webmaster.md` - Webmaster tasks with CMS instructions
 - `team-tasks-dev-external.md` - Developer tasks with technical specs
 - `team-tasks-marketing-team.md` - Marketing team's outreach tasks with draft links
 
@@ -753,7 +753,7 @@ If two agents suggest conflicting actions:
 
 | Field | Values | Description |
 |-------|--------|-------------|
-| `assigned_to` | `content-team`, `yael-webmaster`, `dev-external` | Human team assignment |
+| `assigned_to` | `content-team`, `site-webmaster`, `dev-external` | Human team assignment |
 | `assigned_to_type` | `human` or `agent` | Type of assignee |
 | `content_type` | `blog_post`, `landing_page`, `glossary`, `metadata`, `schema`, `technical`, `content_update` | What kind of work |
 | `requires_draft` | `true` or `false` | Whether /seo-content generates draft |
@@ -811,7 +811,7 @@ After all master files are updated and Sheets are synced, regenerate `docs/seo-a
    - Optimization recommendations ready to execute
 
 3. **Flag tasks requiring manual approval**:
-   - Live site changes (dev-external, yael-webmaster)
+   - Live site changes (dev-external, site-webmaster)
    - Technical/schema implementations
 
 4. **Next steps**:
@@ -925,7 +925,7 @@ Every `/seo-plan` run MUST produce this structured COO report in the Slack notif
     "content_team": {"total": 5, "auto_approved": 5, "top_task": "Dark fleet glossary update"},
     "dev_external": {"total": 2, "pending_approval": 2, "top_task": "FAQ schema markup"},
     "marketing_team": {"total": 3, "auto_approved": 3, "top_task": "Reuters outreach"},
-    "yael_webmaster": {"total": 1, "pending_approval": 1, "top_task": "URL redirect"}
+    "site_webmaster": {"total": 1, "pending_approval": 1, "top_task": "URL redirect"}
   },
   "competitive_alerts": [],
   "risk_alerts": [],
@@ -951,7 +951,7 @@ Every `/seo-plan` run MUST produce this structured COO report in the Slack notif
 | Team | ID | Capabilities | Handles |
 |------|-----|--------------|---------|
 | Content Team | `content-team` | Write/edit content, metadata, blogs, glossary | Content writing, meta descriptions, page copy |
-| Yael (Webmaster) | `yael-webmaster` | WordPress admin, URLs, menus, redirects | URL changes, menu updates, redirects, CMS tasks |
+| Webmaster | `site-webmaster` | WordPress admin, URLs, menus, redirects | URL changes, menu updates, redirects, CMS tasks |
 | Website Developer | `dev-external` | Backend WordPress, schema, performance | Schema markup, Core Web Vitals, code changes |
 | Marketing Team | `marketing-team` | Send outreach emails, submit guest posts, distribute PR | Link building outreach, guest post submissions, PR distribution |
 
@@ -962,7 +962,7 @@ Every `/seo-plan` run MUST produce this structured COO report in the Slack notif
 | Blog posts, landing pages, glossary content | `content-team` |
 | Meta titles/descriptions | `content-team` |
 | FAQ sections, content formatting | `content-team` |
-| URL changes, redirects, menu updates | `yael-webmaster` |
+| URL changes, redirects, menu updates | `site-webmaster` |
 | Schema markup implementation | `dev-external` |
 | Core Web Vitals fixes | `dev-external` |
 | Technical backend changes | `dev-external` |

@@ -886,7 +886,7 @@ Content mentioning specific vessels triggers a mandatory check flow:
 - `/seo-content` only processes tasks with `status: "approved"`
 
 **Upload Script:** `scripts/upload_to_drive.py`
-**Service Account:** `mark-rob-beta@windward-seo-dashboard.iam.gserviceaccount.com`
+**Service Account:** `YOUR_SERVICE_ACCOUNT@YOUR_GCP_PROJECT.iam.gserviceaccount.com`
 **Credentials:** `~/.config/mcp-google-sheets/credentials.json`
 
 **Manual Upload:**

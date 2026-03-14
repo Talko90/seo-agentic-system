@@ -168,7 +168,7 @@ Execute `/seo-plan` agent.
 - All proposals read and merged (including links and agents proposals)
 - `data/master/outreach_pipeline.json` and `backlink_monitor.json` updated
 - False positive validation applied
-- Task assignments made (content-team, yael-webmaster, dev-external, marketing-team)
+- Task assignments made (content-team, site-webmaster, dev-external, marketing-team)
 - Team task reports generated in `data/reports/`
 - Dashboard synced via Google Sheets Sync Protocol
 
@@ -288,7 +288,7 @@ After all phases complete (or fail), generate a report with these sections:
 1. **Phase Status Summary** - Each phase with status (SUCCESS/WARNING/FAILED) and emoji
 2. **Key Outputs** - Action Queue task count, Content Drafts count, Top 3 priorities with ACT IDs and scores
 3. **Warnings & Errors** - All issues from all phases
-4. **Next Steps** - Actionable items per team (content-team, yael-webmaster, dev-external)
+4. **Next Steps** - Actionable items per team (content-team, site-webmaster, dev-external)
 5. **Files Updated** - All master DB files, reports, and drafts created/updated
 6. **Slack Notifications** - Count of notifications sent
 7. **Pipeline Status** - COMPLETED / COMPLETED WITH WARNINGS / FAILED

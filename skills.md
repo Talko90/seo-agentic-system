@@ -171,7 +171,7 @@ This file is continuously updated by SEO agents with learnings, best practices, 
 **Working Configuration** (as of 2026-02-15):
 - **File Location**: `.mcp.json` in project root (NOT `~/.claude/settings.json`)
 - **Env Var Name**: `GOOGLE_SHEETS_CREDENTIALS_PATH` (EXACT - not `CREDENTIALS_PATH`)
-- **Path Format**: Absolute path `~/Claude Main/scripts/google-sheets-service-account.json`
+- **Path Format**: Absolute path `~/your-project/scripts/google-sheets-service-account.json`
 - **Spreadsheet Sharing**: Must share with service account email (Editor permission)
 
 **Common Mistakes**:
