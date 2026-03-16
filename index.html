@@ -1690,9 +1690,8 @@ fetch('https://api.github.com/repos/Talko90/windward-seo-agent-system')
     });
   }).catch(function() {});
 
-// Form submit: POST to Formspree + download personalized CLAUDE.md
-// TODO: replace YOUR_FORMSPREE_ID with your actual form ID from formspree.io
-var FORMSPREE_ID = 'xojkkjdq';
+// Form submit: POST to Make webhook + download personalized CLAUDE.md
+var MAKE_WEBHOOK = 'https://hook.eu1.make.com/9vssy1f9hhkruq82cgbr82oqz2c7zbrp';
 function submitTryForm() {
   var email  = (document.getElementById('try-email').value.trim());
   var domain = (document.getElementById('try-domain').value.trim() || '[your-domain].com');
@@ -1761,14 +1760,12 @@ function submitTryForm() {
   // Show success state
   document.getElementById('try-form-fields').style.display = 'none';
   document.getElementById('try-form-success').style.display = 'block';
-  // POST to Formspree in background (fire-and-forget)
-  if (FORMSPREE_ID !== 'YOUR_FORMSPREE_ID') {
-    fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: email, domain: domain, source: 'claude-md-download' })
-    }).catch(function() {});
-  }
+  // POST to Make webhook in background (fire-and-forget)
+  fetch(MAKE_WEBHOOK, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, domain: domain, source: 'claude-md-download', submitted_at: new Date().toISOString() })
+  }).catch(function() {});
 }
 </script>
 </body>
