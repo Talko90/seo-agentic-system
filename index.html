@@ -1447,6 +1447,26 @@ svg .agent-node:hover circle { opacity: 0.72; }
           style="width:100%;box-sizing:border-box;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:white;font-size:13px;font-family:inherit;outline:none;margin-bottom:10px"/>
         <input id="try-domain" type="text" placeholder="yourdomain.com" maxlength="80"
           style="width:100%;box-sizing:border-box;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:white;font-size:13px;font-family:inherit;outline:none;margin-bottom:12px"/>
+        <!-- GDPR consent checkbox -->
+        <div style="margin-bottom:12px">
+          <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer">
+            <input type="checkbox" id="try-consent" onchange="document.getElementById('try-consent-error').style.display='none';document.getElementById('try-consent-label').style.color='rgba(255,255,255,.5)'" style="margin-top:2px;flex-shrink:0;accent-color:#3b82f6;width:15px;height:15px;cursor:pointer">
+            <span id="try-consent-label" style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.5">
+              I accept the <button type="button" onclick="var d=document.getElementById('try-terms');d.open=!d.open" style="background:none;border:none;padding:0;color:#93c5fd;font-size:11px;text-decoration:underline;cursor:pointer;font-family:inherit">Terms &amp; Conditions</button> and consent to receiving occasional emails from growthbyagent.com about SEO strategies and updates. I can unsubscribe at any time.
+            </span>
+          </label>
+          <div id="try-consent-error" style="display:none;font-size:11px;color:#fca5a5;margin-top:4px;margin-left:25px">Please accept the terms to continue.</div>
+          <details id="try-terms" style="margin-left:25px">
+            <summary style="display:none"></summary>
+            <div style="font-size:10px;color:rgba(255,255,255,.35);line-height:1.65;background:rgba(0,0,0,.25);border-radius:6px;padding:10px 12px;margin-top:8px">
+              <strong style="color:rgba(255,255,255,.5)">Terms &amp; Conditions</strong><br><br>
+              <strong>As-Is Disclaimer:</strong> This template is provided for informational and educational purposes only. No warranties, express or implied, are made regarding its accuracy, completeness, or fitness for any particular purpose. You use it entirely at your own risk.<br><br>
+              <strong>Limitation of Liability:</strong> The creator (Tal Cohen / growthbyagent.com) shall not be liable for any direct, indirect, incidental, special, consequential, or exemplary damages arising from your use or inability to use this template, including but not limited to loss of revenue, data loss, or business interruption, even if advised of the possibility of such damages.<br><br>
+              <strong>Your Responsibility:</strong> You are solely responsible for how you implement, configure, and operate this system within your organisation. SEO results depend on many factors outside the creator&rsquo;s control and are not guaranteed.<br><br>
+              <strong>Data Processing &amp; GDPR:</strong> By submitting this form, you consent to your email address and website domain being stored and processed for the purpose of sending you occasional updates about the SEO Agent System and related content. Data controller: Tal Cohen / growthbyagent.com. Your data will not be sold or shared with third parties. You have the right at any time to access, correct, or delete your data, and to withdraw consent by clicking &ldquo;unsubscribe&rdquo; in any email or by contacting us directly.
+            </div>
+          </details>
+        </div>
         <button onclick="submitTryForm()"
           style="width:100%;padding:11px 20px;border-radius:8px;background:linear-gradient(135deg,#3b82f6,#2563eb);border:none;color:white;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;transition:opacity 0.15s">
           Download CLAUDE.md &rarr;
@@ -1698,6 +1718,12 @@ function submitTryForm() {
   if (!email || !email.includes('@')) {
     document.getElementById('try-email').style.borderColor = '#f87171';
     document.getElementById('try-email').focus();
+    return;
+  }
+  if (!document.getElementById('try-consent').checked) {
+    document.getElementById('try-consent-error').style.display = 'block';
+    document.getElementById('try-consent-label').style.color = 'rgba(252,165,165,.8)';
+    document.getElementById('try-consent').focus();
     return;
   }
   // Download the file immediately — don't make user wait for network
